@@ -27,11 +27,12 @@ const events = {
     List.render({ state: listModel.getState() })
   },
   resetInput: () => {
-    resetInputValue()
+    inputModel.resetInputValue()
     Input.render({ state: inputModel.getState() })
   },
-  setInput: () => {
-    setInputValue();
+  setInput: (value) => {
+    console.log(value)
+    inputModel.setInputValue(value);
     Input.render({ state: inputModel.getState() });
   },
 }
