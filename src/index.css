@@ -1,0 +1,13 @@
+li {
+  color: green;
+  list-style: none;  
+}
+
+li.completed {
+  color:dimgray;
+  text-decoration:line-through;
+}
+
+li.not-completed {
+  color: black;
+}
