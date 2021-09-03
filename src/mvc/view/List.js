@@ -27,7 +27,7 @@ const paintView = (state) => {
 
 const addEvent = ({
   addItem,
-  deleteItem,
+  removeItem,
   toggleItem,
   completeAll,
 }) => {
@@ -35,11 +35,14 @@ const addEvent = ({
     .querySelector("ul");
 
   document.addEventListener("click", e => {
-    if (!e.target.classList.contains("delete-item")) {
-      toggleItem(e.target.dataset.idx)
-    }
-
-    if (e.target.classList.contains("delete-item")) {
+    const targetList = e.target.closest("#listContainer > ul > li")
+    if (targetList) {
+      console.log(e.target);
+      if (e.target.closest("button.delete-item")) {
+        removeItem(targetList.dataset.idx);
+        return;
+      }
+      toggleItem(targetList.dataset.idx);
     }
   })
 
